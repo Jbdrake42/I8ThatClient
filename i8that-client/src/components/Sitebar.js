@@ -1,11 +1,5 @@
-
-
 const Sitebar = () => {
-    return ( 
-        <div>
-            
-        </div>
-     );
-}
- 
+  return <div>HI from sitebar</div>;
+};
+
 export default Sitebar;
