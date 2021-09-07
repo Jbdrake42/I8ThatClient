@@ -1,3 +1,4 @@
+import FoodIndex from "../Food/FoodIndex";
 import React, { useEffect, useState } from 'react';
 import {
   Card,
