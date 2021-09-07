@@ -18,7 +18,7 @@ const Home = (props) => {
       headers: new Headers({
         'Content-Type': 'application/json',
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjMwODc1ODQ5LCJleHAiOjE2MzA5NjIyNDl9.011dWUtaLzvUHBD_GjwNRd8kYumbM4Ml7OUlPvvE0Mo',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjMwOTY0MDY1LCJleHAiOjE2MzEwNTA0NjV9.dNVm2q6VRnKAOb9qp_xFOQFSk2k6uoQ9nw5R0spJGW4',
       }),
     })
       .then((res) => res.json())
@@ -34,19 +34,24 @@ const Home = (props) => {
   const foodMapper = () => {
     return foodEntries.map((food, index) => {
       return (
-        <Card
-          key={index}
-          inverse
-          style={{ backgroundColor: '#333', borderColor: '#333' }}
-        >
-          {/* <CardImg top width="100%" src={image} alt="Card image cap" /> */}
+        <Card key={index}>
+          <CardImg top width="100%" src={food.photo} alt="Card image cap" />
           <CardBody>
             <CardTitle tag="h5">{food.id}</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted">
               {food.food}
             </CardSubtitle>
-            <CardText> {food.date}</CardText>
-            <Button>Button</Button>
+            <CardText>
+              <ul>
+                <li>{food.location}</li>
+                <li>{food.date}</li>
+                <li>{food.calories}</li>
+                <li>{food.emoji}</li>
+                <li>{food.feelings}</li>
+              </ul>
+            </CardText>
+            <Button>Edit</Button>
+            <Button>Delete</Button>
           </CardBody>
         </Card>
       );
