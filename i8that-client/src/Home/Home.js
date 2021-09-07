@@ -18,7 +18,7 @@ const Home = (props) => {
       headers: new Headers({
         'Content-Type': 'application/json',
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjMwOTY0MDY1LCJleHAiOjE2MzEwNTA0NjV9.dNVm2q6VRnKAOb9qp_xFOQFSk2k6uoQ9nw5R0spJGW4',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjMxMDUzMTI0LCJleHAiOjE2MzExMzk1MjR9.QAxJyYsKTG5keQqnUTIhGwRrT5wbfTYrMPy516Kr9RI',
       }),
     })
       .then((res) => res.json())
