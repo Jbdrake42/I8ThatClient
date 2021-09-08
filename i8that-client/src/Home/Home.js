@@ -5,7 +5,7 @@ import {
   CardImg,
   CardTitle,
   CardText,
-  CardColumns, // this could be removed -- note it is added at the parent level
+  CardColumns, // note added at the parent level
   CardSubtitle,
   CardBody,
 } from 'reactstrap';
