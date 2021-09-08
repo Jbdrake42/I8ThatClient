@@ -5,7 +5,7 @@ import {
   CardImg,
   CardTitle,
   CardText,
-  CardColumns, // note added at the parent level
+  CardColumns, // note added at the parent level need to split into second compponent
   CardSubtitle,
   CardBody,
 } from 'reactstrap';
