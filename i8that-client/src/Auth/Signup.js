@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap"; //1
+import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 
 const Signup = (props) => {
     const [email, setEmail] = useState("");
