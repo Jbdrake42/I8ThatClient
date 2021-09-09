@@ -1,4 +1,3 @@
-import FoodIndex from "../Food/FoodIndex";
 import React, { useEffect, useState } from 'react';
 import {
   Card,
@@ -18,8 +17,7 @@ const Home = (props) => {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjMxMDUzMTI0LCJleHAiOjE2MzExMzk1MjR9.QAxJyYsKTG5keQqnUTIhGwRrT5wbfTYrMPy516Kr9RI',
+        Authorization: props.token
       }),
     })
       .then((res) => res.json())
