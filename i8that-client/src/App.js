@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import Header from './Components/Header';
 import Sitebar from './Components/Sitebar';
 import Home from './Home/Home';
-import FoodIndex from "./Food/FoodIndex";
 import Auth from "./Auth/Auth";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
