@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Button } from "reactstrap";
-import Login from "../Auth/Login";
-import Signup from "../Auth/Signup";
 
 const Sitebar = (props) => {
     return ( 
