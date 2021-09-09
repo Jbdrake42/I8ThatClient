@@ -15,7 +15,7 @@ function App() {
     }
   }, [])
 
-  const updateToken = (newToken) => { //3
+  const updateToken = (newToken) => {
     localStorage.setItem("token", newToken);
     setSessionToken(newToken);
     console.log(sessionToken);

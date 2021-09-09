@@ -6,8 +6,6 @@ import Signup from "../Auth/Signup";
 const Sitebar = (props) => {
     return ( 
         <div>
-            <Login />
-            <Signup />
             <Button onClick={props.clickLogout}>Logout</Button>
         </div>
      );
