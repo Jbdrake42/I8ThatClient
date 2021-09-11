@@ -9,6 +9,7 @@ import {
   CardSubtitle,
   CardBody,
 } from 'reactstrap';
+import CreateFood from '../components/CreateFood';
 
 const Home = (props) => {
   const [foodEntries, setFoodEntries] = useState([]);
@@ -17,8 +18,7 @@ const Home = (props) => {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjMxMDYyMTYxLCJleHAiOjE2MzExNDg1NjF9.74kLgkWHMWhm3YnzgsuXMour_xswsP7uEcwW1wduwe0',
+        Authorization: props.token,
       }),
     })
       .then((res) => res.json())
@@ -63,6 +63,7 @@ const Home = (props) => {
       <h3>Food History</h3>
 
       <CardColumns> {foodMapper()}</CardColumns>
+      <CreateFood token={props.token} />
     </div>
   );
 };
