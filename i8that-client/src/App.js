@@ -5,6 +5,7 @@ import Home from './Home/Home';
 import Auth from "./Auth/Auth";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CalorieCounter from "./Home/CalorieCounter";
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -37,7 +38,8 @@ function App() {
       <div>
         <Sitebar clickLogout={clearToken} />
         {protectedViews()}
-        {/* <Home /> */}
+        <CalorieCounter />
+        <Home />
       </div>
     </div>
   );
