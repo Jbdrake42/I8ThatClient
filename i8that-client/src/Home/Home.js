@@ -5,10 +5,11 @@ import {
   CardImg,
   CardTitle,
   CardText,
-  CardColumns, // this could be removed -- note it is added at the parent level
+  CardColumns, // note added at the parent level need to split into second compponent
   CardSubtitle,
   CardBody,
 } from 'reactstrap';
+import CreateFood from '../components/CreateFood';
 
 const Home = (props) => {
   const [foodEntries, setFoodEntries] = useState([]);
@@ -17,7 +18,7 @@ const Home = (props) => {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
-        Authorization: props.token
+        Authorization: props.token,
       }),
     })
       .then((res) => res.json())
@@ -62,6 +63,7 @@ const Home = (props) => {
       <h3>Food History</h3>
 
       <CardColumns> {foodMapper()}</CardColumns>
+      <CreateFood token={props.token} />
     </div>
   );
 };
