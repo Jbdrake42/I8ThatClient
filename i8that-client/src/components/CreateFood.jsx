@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const CreateFood = (props) => {
   const [food, setFood] = useState('');
@@ -9,6 +9,9 @@ const CreateFood = (props) => {
   const [feelings, setFeelings] = useState('');
   const [calories, setCalories] = useState('');
   const [photo, setPhoto] = useState('');
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch('http://localhost:3000/food/create', {
@@ -42,8 +45,11 @@ const CreateFood = (props) => {
       });
   };
   return (
-    <>
-      <h3>Add Food</h3>
+    <div>
+      <Button color="danger" onClick={toggle}>Track Food</Button>
+      <Modal isOpen={modal} toggle={toggle}>
+      <ModalHeader toggle={toggle}>Track Food</ModalHeader>
+        <ModalBody>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Label htmlFor="food" />
@@ -101,10 +107,11 @@ const CreateFood = (props) => {
             onChange={(e) => setPhoto(e.target.value)}
           />
         </FormGroup>
-
         <Button type="submit">Click to Submit</Button>
       </Form>
-    </>
+      </ModalBody>
+      </Modal>
+    </div>
   );
 };
 
