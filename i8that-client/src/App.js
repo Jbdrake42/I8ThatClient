@@ -7,6 +7,9 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Uploading from './components/UploadPhoto';
 import CalorieCounter from "./Home/CalorieCounter";
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom'
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
@@ -40,8 +43,10 @@ function App() {
     <div className="main">
       <Header />
       <div>
+        <Router>
         <Sitebar clickLogout={clearToken} />
         {protectedViews()}
+        </Router>
         <Uploading />
         <CalorieCounter />
         <Home />

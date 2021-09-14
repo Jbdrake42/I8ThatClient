@@ -43,7 +43,7 @@ const CreateFood = (props) => {
   };
   return (
     <>
-      <h3>Log a Workout</h3>
+      <h3>Add Food</h3>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Label htmlFor="food" />
