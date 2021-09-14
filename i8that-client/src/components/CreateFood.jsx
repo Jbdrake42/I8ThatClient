@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 const CreateFood = (props) => {
-  const [food, setFood] = useState('');
-  const [location, setLocation] = useState('');
-  const [date, setDate] = useState('');
-  const [emoji, setEmoji] = useState('');
-  const [feelings, setFeelings] = useState('');
-  const [calories, setCalories] = useState('');
-  const [photo, setPhoto] = useState('');
+  const [food, setFood] = useState("");
+  const [location, setLocation] = useState("");
+  const [date, setDate] = useState("");
+  const [emoji, setEmoji] = useState("");
+  const [feelings, setFeelings] = useState("");
+  const [calories, setCalories] = useState("");
+  const [photo, setPhoto] = useState("");
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
@@ -44,6 +44,7 @@ const CreateFood = (props) => {
         setPhoto('');
       });
   };
+
   return (
     <div>
       <Button color="danger" onClick={toggle}>Track Food</Button>
@@ -52,7 +53,7 @@ const CreateFood = (props) => {
         <ModalBody>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
-          <Label htmlFor="food" />
+          <Label htmlFor="food">Food</Label>
           <Input
             name="food"
             value={food}
@@ -60,7 +61,7 @@ const CreateFood = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="location" />
+          <Label htmlFor="location">Location</Label>
           <Input
             name="location"
             value={location}
@@ -68,7 +69,7 @@ const CreateFood = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="date" />
+          <Label htmlFor="date">Date</Label>
           <Input
             name="date"
             value={date}
@@ -76,7 +77,7 @@ const CreateFood = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="emoji" />
+          <Label htmlFor="emoji">Emoji</Label>
           <Input
             name="emoji"
             value={emoji}
@@ -84,7 +85,7 @@ const CreateFood = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="feelings" />
+          <Label htmlFor="feelings">Feelings</Label>
           <Input
             name="feelings"
             value={feelings}
@@ -92,7 +93,7 @@ const CreateFood = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="calories" />
+          <Label htmlFor="calories">Calories</Label>
           <Input
             name="calories"
             value={calories}
@@ -100,7 +101,7 @@ const CreateFood = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="photo" />
+          <Label htmlFor="photo">Photo</Label>
           <Input
             name="photo"
             value={photo}
