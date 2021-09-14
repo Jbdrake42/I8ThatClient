@@ -47,7 +47,6 @@ function App() {
         <Sitebar clickLogout={clearToken} />
         {protectedViews()}
         </Router>
-        <Uploading />
         <CalorieCounter />
       </div>
     </div>
