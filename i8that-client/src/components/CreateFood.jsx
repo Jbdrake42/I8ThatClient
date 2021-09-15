@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Container } from 'reactstrap';
 
 const CreateFood = (props) => {
@@ -9,8 +10,10 @@ const CreateFood = (props) => {
   const [feelings, setFeelings] = useState("");
   const [calories, setCalories] = useState("");
   const [photo, setPhoto] = useState("");
+
   const [image, setImage] = useState('');
   const [loading, setLoading] = useState(false);
+
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
@@ -46,6 +49,7 @@ const CreateFood = (props) => {
         setPhoto('');
       });
   };
+
 
   const UploadImage = async (e) => {
     const files = e.target.files;
