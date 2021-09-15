@@ -10,9 +10,12 @@ import {
   CardBody,
 } from 'reactstrap';
 import CreateFood from '../Components/CreateFood';
+import FoodEdit from '../Components/EditFood';
 
 const Home = (props) => {
   const [foodEntries, setFoodEntries] = useState([]);
+  const [foodToUpdate, setFoodToUpdate] = useState({});
+
   const fetchFoodEntries = () => {
     fetch('http://localhost:3000/food/get', {
       method: 'GET',
@@ -30,6 +33,10 @@ const Home = (props) => {
   useEffect(() => {
     fetchFoodEntries();
   }, []);
+
+  const editFood = (food) => {
+    setFoodToUpdate(food);
+  }
 
   const foodMapper = () => {
     return foodEntries.map((food, index) => {
@@ -50,7 +57,7 @@ const Home = (props) => {
                 <li>{food.feelings}</li>
               </ul>
             </CardText>
-            <Button>Edit</Button>
+            <Button onClick={() => {props.editFood(food); props.updateOn()}}>Edit</Button>
             <Button>Delete</Button>
           </CardBody>
         </Card>

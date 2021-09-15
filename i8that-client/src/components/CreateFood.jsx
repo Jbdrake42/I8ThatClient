@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Container } from 'reactstrap';
 
 const CreateFood = (props) => {
