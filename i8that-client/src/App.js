@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
-import Sitebar from './components/Sitebar';
+import Header from './Components/Header';
+import Sitebar from './Components/Sitebar';
 import Home from './Home/Home';
 import Auth from './Auth/Auth';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Uploading from './components/UploadPhoto';
+import Uploading from './Components/UploadPhoto';
 import CalorieCounter from "./Home/CalorieCounter";
 import {
   BrowserRouter as Router,
-} from 'react-router-dom'
+} from 'react-router-dom';
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
@@ -47,9 +47,7 @@ function App() {
         <Sitebar clickLogout={clearToken} />
         {protectedViews()}
         </Router>
-        <Uploading />
         <CalorieCounter />
-        <Home />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
+
+import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Container } from 'reactstrap';
 
 const CreateFood = (props) => {
   const [food, setFood] = useState("");
@@ -9,6 +10,10 @@ const CreateFood = (props) => {
   const [feelings, setFeelings] = useState("");
   const [calories, setCalories] = useState("");
   const [photo, setPhoto] = useState("");
+
+  const [image, setImage] = useState('');
+  const [loading, setLoading] = useState(false);
+
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
@@ -43,6 +48,27 @@ const CreateFood = (props) => {
         setCalories('');
         setPhoto('');
       });
+  };
+
+
+  const UploadImage = async (e) => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append('file', files[0]);
+    data.append('upload_preset', 'i8Images');
+    setLoading(true);
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/dounpk3nt/image/upload',
+      {
+        method: 'POST',
+        body: data,
+      }
+    );
+    const File = await res.json();
+    console.log(File.secure_url);
+    setImage(File.secure_url);
+    setPhoto(File.secure_url);
+    setLoading(false);
   };
 
   return (
@@ -107,6 +133,23 @@ const CreateFood = (props) => {
             value={photo}
             onChange={(e) => setPhoto(e.target.value)}
           />
+        <Container>
+        <h1>Upload your image here</h1>
+        <FormGroup>
+          <Input
+            type="file"
+            name="file"
+            placeholder="Upload your file here"
+            onChange={UploadImage}
+          />
+          <br />
+          {loading ? (
+            <h3>Loading...</h3>
+          ) : (
+            <img src={image} style={{ width: '300px' }} />
+          )}
+        </FormGroup>
+      </Container>
         </FormGroup>
         <Button type="submit">Click to Submit</Button>
       </Form>

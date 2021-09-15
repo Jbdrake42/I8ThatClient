@@ -3,7 +3,7 @@ import { Button } from 'reactstrap';
 const Header = () => {
   return (
     <div>
-      Hello from Header<Button color="danger">Click me</Button>
+      <h1>I8That</h1>
     </div>
   );
 };
