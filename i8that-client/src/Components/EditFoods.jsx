@@ -1,170 +1,146 @@
-import React, { useState } from 'react';
-import {
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  Container,
-} from 'reactstrap';
+import React, {useState} from "react";
+import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Container } from "reactstrap";
 
-const EditFood = (props) => {
-  const [food, setFood] = useState('props.food.');
-  const [location, setLocation] = useState('');
-  const [date, setDate] = useState('');
-  const [emoji, setEmoji] = useState('');
-  const [feelings, setFeelings] = useState('');
-  const [calories, setCalories] = useState('');
-  const [photo, setPhoto] = useState('');
-  const [image, setImage] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [modal, setModal] = useState(false);
-  const toggle = () => setModal(!modal);
+const FoodEdit = (props) => {
+    const [editFood, setEditFood] = useState(props.foodToUpdate.food);
+    const [editLocation, setEditLocation] = useState(props.foodToUpdate.location);
+    const [editDate, setEditDate] = useState(props.foodToUpdate.date);
+    const [editEmoji, setEditEmoji] = useState(props.foodToUpdate.emoji);
+    const [editFeelings, setEditFeelings] = useState(props.foodToUpdate.feelings);
+    const [editCalories, setEditCalories] = useState(props.foodToUpdate.calories);
+    const [editPhoto, setEditPhoto] = useState(props.foodToUpdate.photo);
+    
+    const [image, setImage] = useState('');
+    const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch('http://localhost:3000/food/create', {
-      method: 'POST',
-      body: JSON.stringify({
-        food: {
-          food: food,
-          location: location,
-          date: date,
-          emoji: emoji,
-          feelings: feelings,
-          calories: calories,
-          photo: photo,
-        },
-      }),
-      headers: new Headers({
-        'Content-Type': 'application/json',
-        Authorization: props.token,
-      }),
-    })
-      .then((res) => res.json())
-      .then((logData) => {
-        console.log(logData);
-        setFood('');
-        setLocation('');
-        setDate('');
-        setEmoji('');
-        setFeelings('');
-        setCalories('');
-        setPhoto('');
-      });
-  };
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
 
-  const UploadImage = async (e) => {
-    const files = e.target.files;
-    const data = new FormData();
-    data.append('file', files[0]);
-    data.append('upload_preset', 'i8Images');
-    setLoading(true);
-    const res = await fetch(
-      'https://api.cloudinary.com/v1_1/dounpk3nt/image/upload',
-      {
-        method: 'POST',
-        body: data,
-      }
-    );
-    const File = await res.json();
-    console.log(File.secure_url);
-    setImage(File.secure_url);
-    setPhoto(File.secure_url);
-    setLoading(false);
-  };
+    const foodUpdate = (event, food) => {
+        fetch(`http://localhost:3000/update/${props.foodToUpdate.id}`, {
+            method: "PUT",
+            body: JSON.stringify({log: { food: editFood,
+                location: editLocation,
+                date: editDate,
+                emoji: editEmoji,
+                feelings: editFeelings,
+                calories: editCalories,
+                photo: editPhoto}}),
+            headers: new Headers ({
+                "Content-Type": "application/json",
+                "Authorization": props.token
+            })
+        }) .then((res) => {
+            props.fetchFoodEntries();
+            props.updateOff();
+        })
+    }
 
-  return (
-    <div>
-      <Button color="danger" onClick={toggle}>
-        Track Food
-      </Button>
-      <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Track Food</ModalHeader>
-        <ModalBody>
-          <Form onSubmit={handleSubmit}>
-            <FormGroup>
-              <Label htmlFor="food">Food</Label>
-              <Input
-                name="food"
-                value={food}
-                onChange={(e) => setFood(e.target.value)}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label htmlFor="location">Location</Label>
-              <Input
-                name="location"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label htmlFor="date">Date</Label>
-              <Input
-                name="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label htmlFor="emoji">Emoji</Label>
-              <Input
-                name="emoji"
-                value={emoji}
-                onChange={(e) => setEmoji(e.target.value)}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label htmlFor="feelings">Feelings</Label>
-              <Input
-                name="feelings"
-                value={feelings}
-                onChange={(e) => setFeelings(e.target.value)}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label htmlFor="calories">Calories</Label>
-              <Input
-                name="calories"
-                value={calories}
-                onChange={(e) => setCalories(e.target.value)}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label htmlFor="photo">Photo</Label>
-              <Input
-                name="photo"
-                value={photo}
-                onChange={(e) => setPhoto(e.target.value)}
-              />
-              <Container>
-                <h1>Upload your image here</h1>
-                <FormGroup>
-                  <Input
-                    type="file"
-                    name="file"
-                    placeholder="Upload your file here"
-                    onChange={UploadImage}
-                  />
-                  <br />
-                  {loading ? (
-                    <h3>Loading...</h3>
-                  ) : (
-                    <img src={image} style={{ width: '300px' }} />
-                  )}
-                </FormGroup>
-              </Container>
-            </FormGroup>
-            <Button type="submit">Click to Submit</Button>
-          </Form>
-        </ModalBody>
+    const UploadImage = async (e) => {
+        const files = e.target.files;
+        const data = new FormData();
+        data.append('file', files[0]);
+        data.append('upload_preset', 'i8Images');
+        setLoading(true);
+        const res = await fetch(
+          'https://api.cloudinary.com/v1_1/dounpk3nt/image/upload',
+          {
+            method: 'POST',
+            body: data,
+          }
+        );
+        const File = await res.json();
+        console.log(File.secure_url);
+        setImage(File.secure_url);
+        setEditPhoto(File.secure_url);
+        setLoading(false);
+      };
+
+    return (
+        <div>
+        <Modal isOpen={modal} toggle={toggle}>
+        <ModalHeader toggle={toggle}>Edit Food</ModalHeader>
+          <ModalBody>
+        <Form onSubmit={foodUpdate}>
+        <FormGroup>
+          <Label htmlFor="food">Edit Food</Label>
+          <Input
+            name="food"
+            value={editFood}
+            onChange={(e) => setEditFood(e.target.value)}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="location">Edit Location</Label>
+          <Input
+            name="location"
+            value={editLocation}
+            onChange={(e) => setEditLocation(e.target.value)}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="date">Edit Date</Label>
+          <Input
+            name="date"
+            value={editDate}
+            onChange={(e) => setEditDate(e.target.value)}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="emoji">Date Emoji</Label>
+          <Input
+            name="emoji"
+            value={editEmoji}
+            onChange={(e) => setEditEmoji(e.target.value)}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="feelings">Edit Feelings</Label>
+          <Input
+            name="feelings"
+            value={editFeelings}
+            onChange={(e) => setEditFeelings(e.target.value)}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="calories">Edit Calories</Label>
+          <Input
+            name="calories"
+            value={editCalories}
+            onChange={(e) => setEditCalories(e.target.value)}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="photo">Edit Photo</Label>
+          <Input
+            name="photo"
+            value={editPhoto}
+            onChange={(e) => setEditPhoto(e.target.value)}
+          />
+        <Container>
+        <h1>Upload your image here</h1>
+        <FormGroup>
+          <Input
+            type="file"
+            name="file"
+            placeholder="Upload your file here"
+            onChange={UploadImage}
+          />
+          <br />
+          {loading ? (
+            <h3>Loading...</h3>
+          ) : (
+            <img src={image} style={{ width: '300px' }} />
+          )}
+        </FormGroup>
+      </Container>
+        </FormGroup>
+        <Button type="submit">Edit</Button>
+      </Form>
+      </ModalBody>
       </Modal>
-    </div>
-  );
+      </div>
+    );
 };
 
-export default EditFood;
+export default FoodEdit;
