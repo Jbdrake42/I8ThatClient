@@ -31,6 +31,16 @@ const Home = (props) => {
     fetchFoodEntries();
   }, []);
 
+  const deleteFoodEntry = (food) => {
+    fetch(`http://localhost:3000/food/delete/${food.id}`, {
+      method: 'DELETE',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        Authorization: props.token,
+      }),
+    }).then(() => fetchFoodEntries());
+  };
+
   const foodMapper = () => {
     return foodEntries.map((food, index) => {
       return (
@@ -51,7 +61,14 @@ const Home = (props) => {
               </ul>
             </CardText>
             <Button>Edit</Button>
-            <Button>Delete</Button>
+            <Button
+              color="danger"
+              onClick={() => {
+                deleteFoodEntry(food);
+              }}
+            >
+              Delete
+            </Button>
           </CardBody>
         </Card>
       );
