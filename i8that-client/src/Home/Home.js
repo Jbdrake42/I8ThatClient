@@ -61,9 +61,8 @@ const Home = (props) => {
   return (
     <div>
       <h3>Food History</h3>
-
-      <CardColumns> {foodMapper()}</CardColumns>
       <CreateFood token={props.token} />
+      <CardColumns> {foodMapper()}</CardColumns>
     </div>
   );
 };
