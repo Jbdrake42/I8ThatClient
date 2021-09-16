@@ -60,7 +60,7 @@ const Home = (props) => {
                 <li>{food.feelings}</li>
               </ul>
             </CardText>
-            <Button>Edit</Button>
+            <Button color="warning" onClick={() => {props.edit(workout); props.updateOn()}}>Update</Button>
             <Button
               color="danger"
               onClick={() => {
