@@ -6,10 +6,8 @@ import Auth from './Auth/Auth';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Uploading from './Components/UploadPhoto';
-import CalorieCounter from "./Home/CalorieCounter";
-import {
-  BrowserRouter as Router,
-} from 'react-router-dom';
+import CalorieCounter from './Home/CalorieCounter';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
@@ -44,16 +42,12 @@ function App() {
       <Header />
       <div>
         <Router>
-        <Sitebar clickLogout={clearToken} />
-        {protectedViews()}
-<<<<<<< HEAD
-        <Uploading />
-        <CalorieCounter token={sessionToken} />
-        <Home />
-=======
+          <Sitebar clickLogout={clearToken} />
+          {protectedViews()}
+          <Uploading />
+          <CalorieCounter token={sessionToken} />
+          <Home />
         </Router>
-        <CalorieCounter />
->>>>>>> 03e60c77d5f2bedbe15e698872bc29bd92b7ca3b
       </div>
     </div>
   );
