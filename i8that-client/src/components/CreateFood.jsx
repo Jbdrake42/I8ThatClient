@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import {
   Button,
   Form,
@@ -59,6 +58,8 @@ const CreateFood = (props) => {
         setPhoto('');
       });
   };
+
+  
 
   const UploadImage = async (e) => {
     const files = e.target.files;
@@ -163,7 +164,8 @@ const CreateFood = (props) => {
                 </FormGroup>
               </Container>
             </FormGroup>
-            <Button type="submit">Click to Submit</Button>
+            <Button type="submit" onClick={toggle}>Click to Submit</Button>
+            <Button onClick={toggle}>Cancel</Button>
           </Form>
         </ModalBody>
       </Modal>
