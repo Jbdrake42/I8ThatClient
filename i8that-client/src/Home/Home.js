@@ -9,7 +9,7 @@ import {
   CardSubtitle,
   CardBody,
 } from 'reactstrap';
-import CreateFood from '../components/CreateFood';
+import CreateFood from '../Components/CreateFood';
 
 const Home = (props) => {
   const [foodEntries, setFoodEntries] = useState([]);

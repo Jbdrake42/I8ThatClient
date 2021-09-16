@@ -62,15 +62,16 @@ const CreateFood = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="date" />
+          <Label htmlFor="date">date</Label>
           <Input
+            type="date"
             name="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="emoji" />
+          <Label htmlFor="emoji"></Label>
           <Input
             name="emoji"
             value={emoji}
@@ -86,7 +87,7 @@ const CreateFood = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="calories" />
+          <Label htmlFor="calories">calories</Label>
           <Input
             name="calories"
             value={calories}
