@@ -9,7 +9,7 @@ import {
   CardSubtitle,
   CardBody,
 } from 'reactstrap';
-import CreateFood from '../components/CreateFood';
+import CreateFood from '../Components/CreateFood';
 
 const Home = (props) => {
   const [foodEntries, setFoodEntries] = useState([]);
@@ -61,9 +61,8 @@ const Home = (props) => {
   return (
     <div>
       <h3>Food History</h3>
-
-      <CardColumns> {foodMapper()}</CardColumns>
       <CreateFood token={props.token} />
+      <CardColumns> {foodMapper()}</CardColumns>
     </div>
   );
 };
