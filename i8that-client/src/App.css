@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.emojiHolder{
+  display: inline-flex;
+  border: none;
+  text-align: center;
+}
+
+.emojiLabel{
+  align-items: center;
+}
+.emojiImages{
+  height: 24% !important;
+  width: 24% !important;
+  border: none;
+}
