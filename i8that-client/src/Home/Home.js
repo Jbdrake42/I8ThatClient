@@ -31,6 +31,7 @@ const Home = (props) => {
     fetchFoodEntries();
   }, []);
 
+
   function emojiDisplayer(e){
         
         if(e.emoji === "great"){
@@ -44,6 +45,17 @@ const Home = (props) => {
         }
       
   }
+
+  const deleteFoodEntry = (food) => {
+    fetch(`http://localhost:3000/food/delete/${food.id}`, {
+      method: 'DELETE',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        Authorization: props.token,
+      }),
+    }).then(() => fetchFoodEntries());
+  };
+
 
   const foodMapper = () => {
     return foodEntries.map((food, index) => {
@@ -64,8 +76,15 @@ const Home = (props) => {
                 <li>{emojiDisplayer(food)}</li>
               </ul>
             </CardText>
-            <Button>Edit</Button>
-            <Button>Delete</Button>
+            <Button color="warning" onClick={() => {props.edit(workout); props.updateOn()}}>Update</Button>
+            <Button
+              color="danger"
+              onClick={() => {
+                deleteFoodEntry(food);
+              }}
+            >
+              Delete
+            </Button>
           </CardBody>
         </Card>
       );

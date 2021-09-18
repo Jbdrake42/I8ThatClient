@@ -5,14 +5,16 @@ let greatEmoji = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thu
 let goodEmoji ="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/slightly-smiling-face_1f642.png"
 let disgusted ="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/unamused-face_1f612.png"
 let gross = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/nauseated-face_1f922.png"
+
+
 const CreateFood = (props) => {
-  const [food, setFood] = useState("");
-  const [location, setLocation] = useState("");
-  const [date, setDate] = useState("");
-  const [emoji, setEmoji] = useState("");
-  const [feelings, setFeelings] = useState("");
-  const [calories, setCalories] = useState("");
-  const [photo, setPhoto] = useState("");
+  const [food, setFood] = useState('');
+  const [location, setLocation] = useState('');
+  const [date, setDate] = useState('');
+  const [emoji, setEmoji] = useState('');
+  const [feelings, setFeelings] = useState('');
+  const [calories, setCalories] = useState('');
+  const [photo, setPhoto] = useState('');
 
   const [image, setImage] = useState('');
   const [loading, setLoading] = useState(false);
@@ -53,6 +55,7 @@ const CreateFood = (props) => {
       });
   };
 
+  
 
   const UploadImage = async (e) => {
     const files = e.target.files;
@@ -76,10 +79,13 @@ const CreateFood = (props) => {
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>Track Food</Button>
+      <Button color="danger" onClick={toggle}>
+        Track Food
+      </Button>
       <Modal isOpen={modal} toggle={toggle}>
-      <ModalHeader toggle={toggle}>Track Food</ModalHeader>
+        <ModalHeader toggle={toggle}>Track Food</ModalHeader>
         <ModalBody>
+
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Label htmlFor="food">Food</Label>
