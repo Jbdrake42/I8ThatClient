@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Container } from 'reactstrap';
-
+let greatEmoji = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/smiling-face-with-smiling-eyes_1f60a.png"
+let goodEmoji ="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/slightly-smiling-face_1f642.png"
+let disgusted ="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/unamused-face_1f612.png"
+let gross = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/nauseated-face_1f922.png"
 const CreateFood = (props) => {
   const [food, setFood] = useState("");
   const [location, setLocation] = useState("");
@@ -103,14 +106,7 @@ const CreateFood = (props) => {
             onChange={(e) => setDate(e.target.value)}
           />
         </FormGroup>
-        <FormGroup>
-          <Label htmlFor="emoji">Emoji</Label>
-          <Input
-            name="emoji"
-            value={emoji}
-            onChange={(e) => setEmoji(e.target.value)}
-          />
-        </FormGroup>
+      
         <FormGroup>
           <Label htmlFor="feelings">Feelings</Label>
           <Input
@@ -152,7 +148,15 @@ const CreateFood = (props) => {
         </FormGroup>
       </Container>
         </FormGroup>
-        <Button type="submit">Click to Submit</Button>
+        <FormGroup >
+          <Label className="emojiLabel" htmlFor="emoji">Summerize the Food Experience</Label>
+          <div className="emojiHolder">
+          <Input className="emojiImages" type="image" src={greatEmoji} max-width="24" height="24" value="great" alt="great smile" onClick={(e) => setEmoji(e.target.value), toggle}  />
+          <Input className="emojiImages" type="image" src={goodEmoji} width="48" height="48" value="good" alt="ok smile" onClick={(e) => setEmoji(e.target.value), toggle}  />
+          <Input className="emojiImages" type="image" src={disgusted} width="48" height="48" value="disgusted"  alt="side eye" onClick={(e) => setEmoji(e.target.value), toggle} />
+          <Input className="emojiImages" type="image" src={gross} width="48" height="48" value="gross"  alt="about to barf" onClick={(e) => setEmoji(e.target.value), toggle} />
+          </div>
+        </FormGroup>
       </Form>
       </ModalBody>
       </Modal>
