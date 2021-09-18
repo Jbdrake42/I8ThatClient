@@ -95,11 +95,7 @@ const CreateFood = (props) => {
           />
         </FormGroup>
         <FormGroup>
-<<<<<<< HEAD
-          <Label htmlFor="date">date</Label>
-=======
           <Label htmlFor="date">Date</Label>
->>>>>>> 03e60c77d5f2bedbe15e698872bc29bd92b7ca3b
           <Input
             type="date"
             name="date"
@@ -108,11 +104,7 @@ const CreateFood = (props) => {
           />
         </FormGroup>
         <FormGroup>
-<<<<<<< HEAD
-          <Label htmlFor="emoji"></Label>
-=======
           <Label htmlFor="emoji">Emoji</Label>
->>>>>>> 03e60c77d5f2bedbe15e698872bc29bd92b7ca3b
           <Input
             name="emoji"
             value={emoji}
@@ -128,11 +120,7 @@ const CreateFood = (props) => {
           />
         </FormGroup>
         <FormGroup>
-<<<<<<< HEAD
-          <Label htmlFor="calories">calories</Label>
-=======
           <Label htmlFor="calories">Calories</Label>
->>>>>>> 03e60c77d5f2bedbe15e698872bc29bd92b7ca3b
           <Input
             name="calories"
             value={calories}

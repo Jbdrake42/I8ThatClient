@@ -7,6 +7,8 @@ const CalorieCounter = (props) => {
     const [basecalories, setbasecalories] = useState(2800);
     const [dailyCalorie, setDailyCalorie] = useState(0)
     const [remainingCalorie, setRemainingCalorie] = useState(0)
+    const [calorieactive, setcalorieactive] = useState(false);
+
     let calculateCalories = () =>{
         let calorieIngested = 0
         var today = new Date();
@@ -32,21 +34,26 @@ const CalorieCounter = (props) => {
                 if(logData[i].date === today){
                     let added = logData[i].calories
                     calorieIngested = calorieIngested + added
+                    let calorieleftover = basecalories - calorieIngested
                     setDailyCalorie(calorieIngested)
-                    
+                    setRemainingCalorie(calorieleftover)
+                    setcalorieactive(true)
                 }
                 
             }
-            setRemainingCalorie(basecalories - dailyCalorie)
+            
           })          
       };
+      useEffect(() => {
+        calculateCalories()
       
+      }, []);
     return ( 
         <div>
             hello from calory CalorieCounter
-            <p>{basecalories}</p>
-            <p>{dailyCalorie}</p>
-            <p>{remainingCalorie}</p> 
+            <p>Maximum Calories: {basecalories}</p>
+            {calorieactive ? <><p>Daily Calories Consumed: {dailyCalorie}</p></> : <></> }
+            {calorieactive ?<><p>Calories Remaining: {remainingCalorie}</p></> : <></> }
         <button onClick={calculateCalories}>Click Me</button>
         </div>
      );
