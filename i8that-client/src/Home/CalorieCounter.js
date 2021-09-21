@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { Button } from 'reactstrap';
 
 const CalorieCounter = (props) => {
 
@@ -8,6 +8,7 @@ const CalorieCounter = (props) => {
     const [dailyCalorie, setDailyCalorie] = useState(0)
     const [remainingCalorie, setRemainingCalorie] = useState(0)
     const [calorieactive, setcalorieactive] = useState(false);
+
 
     let calculateCalories = () =>{
         let calorieIngested = 0
@@ -30,7 +31,7 @@ const CalorieCounter = (props) => {
           .then((logData) => {
               
             for(let i = 0; i < logData.length; i++){
-                console.log(logData[1].date)
+                
                 if(logData[i].date === today){
                     let added = logData[i].calories
                     calorieIngested = calorieIngested + added
@@ -49,12 +50,20 @@ const CalorieCounter = (props) => {
       
       }, []);
     return ( 
-        <div>
-            hello from calory CalorieCounter
+        <div id="calorieMain">
+          <div>
+            <Button color="danger" onClick={calculateCalories}>Click Me</Button>
+            </div>
+            <div class="calorieChild">
             <p>Maximum Calories: {basecalories}</p>
+            </div>
+            <div class="calorieChild">
             {calorieactive ? <><p>Daily Calories Consumed: {dailyCalorie}</p></> : <></> }
+            </div>
+            <div class="calorieChild">
             {calorieactive ?<><p>Calories Remaining: {remainingCalorie}</p></> : <></> }
-        <button onClick={calculateCalories}>Click Me</button>
+            </div>
+        
         </div>
      );
 }

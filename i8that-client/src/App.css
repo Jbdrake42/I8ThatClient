@@ -51,3 +51,18 @@
   width: 24% !important;
   border: none;
 }
+
+#calorieMain{
+background-color: lightblue;
+border: 3px lightgray solid;
+display: inline-flex;
+height: 15vh;
+width: 100%;
+}
+
+.calorieChild{
+flex-wrap: wrap;
+top: 50%;
+margin-left: 5vw;
+margin-right: 5vw;
+}

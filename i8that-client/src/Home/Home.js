@@ -76,7 +76,7 @@ const Home = (props) => {
                 <li>{emojiDisplayer(food)}</li>
               </ul>
             </CardText>
-            <Button color="warning" onClick={() => {props.edit(workout); props.updateOn()}}>Update</Button>
+            {/* <Button color="warning" onClick={() => {props.edit(workout); props.updateOn()}}>Update</Button> */}
             <Button
               color="danger"
               onClick={() => {
