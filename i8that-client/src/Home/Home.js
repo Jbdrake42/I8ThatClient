@@ -34,6 +34,7 @@ const Home = (props) => {
     fetchFoodEntries();
   }, []);
 
+
   // ========== Example 1a
   const [foodToUpdate, setFoodToUpdate] = useState([]);
   const editUpdateFood = (food) => {
@@ -57,6 +58,22 @@ const Home = (props) => {
 
   // ==============End Example 2
 
+
+  function emojiDisplayer(e){
+        
+        if(e.emoji === "great"){
+        return <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/smiling-face-with-smiling-eyes_1f60a.png" />;
+        } else if(e.emoji === "good"){
+          return <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/slightly-smiling-face_1f642.png" />;
+        } else if (e.emoji === "disgusted"){
+          return <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/unamused-face_1f612.png" />
+        } else if (e.emoji=== "gross"){
+          return <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/nauseated-face_1f922.png"/>
+        }
+      
+  }
+
+
   const deleteFoodEntry = (food) => {
     fetch(`http://localhost:3000/food/delete/${food.id}`, {
       method: 'DELETE',
@@ -67,6 +84,7 @@ const Home = (props) => {
     }).then(() => fetchFoodEntries());
     console.log({ food });
   };
+
 
   const foodMapper = () => {
     return foodEntries.map((food, index) => {
@@ -80,13 +98,14 @@ const Home = (props) => {
             </CardSubtitle>
             <CardText>
               <ul>
-                <li>{food.location}</li>
-                <li>{food.date}</li>
-                <li>{food.calories}</li>
-                <li>{food.emoji}</li>
-                <li>{food.feelings}</li>
+                <li>Location: {food.location}</li>
+                <li>Date: {food.date}</li>
+                <li>Calories: {food.calories}</li>
+                <li> {food.feelings}</li>
+                <li>{emojiDisplayer(food)}</li>
               </ul>
             </CardText>
+
             <Button
               color="warning"
               onClick={() => {
@@ -107,6 +126,8 @@ const Home = (props) => {
             >
               Click top pop
             </Button>
+
+
             <Button
               color="danger"
               onClick={() => {

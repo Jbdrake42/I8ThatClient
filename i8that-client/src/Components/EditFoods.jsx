@@ -1,17 +1,8 @@
-import React, { useState } from 'react';
-import {
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  Container,
-} from 'reactstrap';
+import React, {useState} from "react";
+import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Container } from "reactstrap";
 
 const FoodEdit = (props) => {
+
   const [editFood, setEditFood] = useState(props.foodToUpdate.food);
   const [editLocation, setEditLocation] = useState(props.foodToUpdate.location);
   const [editDate, setEditDate] = useState(props.foodToUpdate.date);
@@ -152,9 +143,13 @@ const FoodEdit = (props) => {
             <Button type="submit">Edit</Button>
           </Form>
         </ModalBody>
+
       </Modal>
-    </div>
-  );
+      </div>
+    );
 };
 
+
 export default FoodEdit;
+
+
