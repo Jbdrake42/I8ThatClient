@@ -54,7 +54,10 @@ const CreateFood = (props) => {
       });
   };
 
-  
+  function setEmojo(e){
+    setEmoji(e.target.value); 
+    toggle()
+  }
 
   const UploadImage = async (e) => {
     const files = e.target.files;
@@ -156,10 +159,10 @@ const CreateFood = (props) => {
         <FormGroup >
           <Label className="emojiLabel" htmlFor="emoji">Summerize the Food Experience</Label>
           <div className="emojiHolder">
-          <Input className="emojiImages" type="image" src={greatEmoji} max-width="24" height="24" value="great" alt="great smile" onClick={(e) => setEmoji(e.target.value), toggle}  />
-          <Input className="emojiImages" type="image" src={goodEmoji} width="48" height="48" value="good" alt="ok smile" onClick={(e) => setEmoji(e.target.value), toggle}  />
-          <Input className="emojiImages" type="image" src={disgusted} width="48" height="48" value="disgusted"  alt="side eye" onClick={(e) => setEmoji(e.target.value), toggle} />
-          <Input className="emojiImages" type="image" src={gross} width="48" height="48" value="gross"  alt="about to barf" onClick={(e) => setEmoji(e.target.value), toggle} />
+          <Input className="emojiImages" type="image" src={greatEmoji} max-width="24" height="24" value="great" alt="great smile" onClick={setEmojo}  />
+          <Input className="emojiImages" type="image" src={goodEmoji} width="48" height="48" value="good" alt="ok smile" onClick={setEmojo}  />
+          <Input className="emojiImages" type="image" src={disgusted} width="48" height="48" value="disgusted"  alt="side eye" onClick={setEmojo} />
+          <Input className="emojiImages" type="image" src={gross} width="48" height="48" value="gross"  alt="about to barf" onClick={setEmojo} />
           </div>
         </FormGroup>
       </Form>

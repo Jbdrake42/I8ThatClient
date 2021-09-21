@@ -74,6 +74,8 @@ const Home = (props) => {
       return (
         <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/nauseated-face_1f922.png" />
       );
+    } else {
+      console.log("no emogi for you")
     }
   }
 
