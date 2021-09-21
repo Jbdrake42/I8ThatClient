@@ -160,6 +160,7 @@ const Home = (props) => {
         itemFeeling={foodToUpdate.feelings}
         itemCalories={foodToUpdate.calories}
         itemPhoto={foodToUpdate.photo}
+        token={props.token}
       />
       <FoodEdit
         modal={modal}
