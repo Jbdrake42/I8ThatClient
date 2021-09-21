@@ -45,9 +45,7 @@ function App() {
 
           <Sitebar clickLogout={clearToken} />
           {protectedViews()}
-          <Uploading />
           <CalorieCounter token={sessionToken} />
-          <Home />
         </Router>
 
       </div>
