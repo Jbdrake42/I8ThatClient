@@ -1,8 +1,17 @@
-import React, {useState} from "react";
-import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Container } from "reactstrap";
+import React, { useState } from 'react';
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Container,
+} from 'reactstrap';
 
 const FoodEdit = (props) => {
-
   const [editFood, setEditFood] = useState(props.foodToUpdate.food);
   const [editLocation, setEditLocation] = useState(props.foodToUpdate.location);
   const [editDate, setEditDate] = useState(props.foodToUpdate.date);
@@ -14,8 +23,8 @@ const FoodEdit = (props) => {
   const [image, setImage] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const [modal, setModal] = useState(false);
-  const toggle = () => setModal(!modal);
+  // const [modal, setModal] = useState(false);
+  const toggle = () => props.setModal(!props.modal);
 
   const foodUpdate = (event, food) => {
     fetch(`http://localhost:3000/update/${props.foodToUpdate.id}`, {
@@ -63,7 +72,12 @@ const FoodEdit = (props) => {
 
   return (
     <div>
-      <Modal isOpen={modal} toggle={toggle}>
+      <p>{props.itemA}</p>
+      <p>{props.itemB}</p>
+      <p>{props.itemC}</p>
+      <p>{props.itemD}</p>
+      {console.info(props.itemD)}
+      <Modal isOpen={props.modal} toggle={toggle}>
         <ModalHeader>Edit Food</ModalHeader>
         <ModalBody>
           <Form onSubmit={foodUpdate}>
@@ -143,13 +157,9 @@ const FoodEdit = (props) => {
             <Button type="submit">Edit</Button>
           </Form>
         </ModalBody>
-
       </Modal>
-      </div>
-    );
+    </div>
+  );
 };
 
-
 export default FoodEdit;
-
-
