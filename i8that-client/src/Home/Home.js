@@ -57,6 +57,10 @@ const Home = (props) => {
 
   // ==============End Example 2
 
+  const updateOff = () => {
+    setModal(false);
+  };
+
   function emojiDisplayer(e) {
     if (e.emoji === 'great') {
       return (
@@ -121,7 +125,7 @@ const Home = (props) => {
 
             <Button
               color="danger"
-              onClick={() => {
+              onClick={(event) => {
                 toggle2();
                 editUpdateFood(food);
               }}
@@ -161,15 +165,8 @@ const Home = (props) => {
         itemCalories={foodToUpdate.calories}
         itemPhoto={foodToUpdate.photo}
         token={props.token}
-      />
-      <FoodEdit
-        modal={modal}
-        setModal={setModal}
-        foodToUpdate={setFoodToUpdate}
-        itemA={foodToUpdate.id}
-        itemB={foodToUpdate.food}
-        itemC={foodToUpdate.location}
-        itemD={foodToUpdate.feelings}
+        fetchFoodEntries={fetchFoodEntries}
+        updateOff={updateOff}
       />
     </div>
   );

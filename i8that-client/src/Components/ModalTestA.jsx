@@ -27,16 +27,17 @@ const ModalTestA = (props) => {
   const [loading, setLoading] = useState(false);
 
   const foodUpdate = (event, food) => {
-    fetch(`http://localhost:3000/update/${props.itemId}`, {
+    event.preventDefault();
+    fetch(`http://localhost:3000/food/update/${props.itemId}`, {
       method: 'PUT',
       body: JSON.stringify({
-        log: {
+        food: {
           food: editFood,
           location: editLocation,
           date: editDate,
-          //   emoji: editEmoji,
+
           feelings: editFeelings,
-          calories: editCalories,
+          calories: Number(editCalories),
           photo: editPhoto,
         },
       }),
@@ -46,7 +47,7 @@ const ModalTestA = (props) => {
       }),
     }).then((res) => {
       props.fetchFoodEntries();
-      props.updateOff();
+      toggle2();
     });
   };
 
