@@ -73,17 +73,14 @@ const ModalTestA = (props) => {
   return (
     <>
       <Modal isOpen={props.modal2} toggle={toggle2}>
-        <ModalHeader>Edit Food</ModalHeader>
+        <ModalHeader toggle={toggle2}>Edit Food</ModalHeader>
         <ModalBody>
-          {props.info} {props.itemId}, {props.itemFood},{props.itemLocation},
-          {props.itemDate},{props.itemFeeling}, {props.itemCalories},{' '}
-          {props.itemPhoto} Lorem ipsum dolor sit amet, consectetur adipisicing
           <Form onSubmit={foodUpdate}>
             <FormGroup>
               <Label htmlFor="food">Edit Food</Label>
               <Input
                 name="food"
-                value={props.itemFood}
+                defaultValue={props.itemFood}
                 onChange={(e) => setEditFood(e.target.value)}
               />
             </FormGroup>
@@ -91,7 +88,7 @@ const ModalTestA = (props) => {
               <Label htmlFor="location">Edit Location</Label>
               <Input
                 name="location"
-                value={props.itemLocation}
+                defaultValue={props.itemLocation}
                 onChange={(e) => setEditLocation(e.target.value)}
               />
             </FormGroup>
@@ -99,7 +96,8 @@ const ModalTestA = (props) => {
               <Label htmlFor="date">Edit Date</Label>
               <Input
                 name="date"
-                value={props.itemDate}
+                type="date"
+                defaultValue={props.itemDate}
                 onChange={(e) => setEditDate(e.target.value)}
               />
             </FormGroup>
@@ -107,7 +105,7 @@ const ModalTestA = (props) => {
               <Label htmlFor="emoji">Edit Emoji</Label>
               <Input
                 name="emoji"
-                value={editEmoji}
+                defaultValue={editEmoji}
                 onChange={(e) => setEditEmoji(e.target.value)}
               />
             </FormGroup> */}
@@ -115,7 +113,7 @@ const ModalTestA = (props) => {
               <Label htmlFor="feelings">Edit Feelings</Label>
               <Input
                 name="feelings"
-                value={props.itemFeeling}
+                defaultValue={props.itemFeeling}
                 onChange={(e) => setEditFeelings(e.target.value)}
               />
             </FormGroup>
@@ -123,7 +121,7 @@ const ModalTestA = (props) => {
               <Label htmlFor="calories">Edit Calories</Label>
               <Input
                 name="calories"
-                value={props.itemCalories}
+                defaultValue={props.itemCalories}
                 onChange={(e) => setEditCalories(e.target.value)}
               />
             </FormGroup>
@@ -131,7 +129,7 @@ const ModalTestA = (props) => {
               <Label htmlFor="photo">Edit Photo</Label>
               <Input
                 name="photo"
-                value={props.itemPhoto}
+                defaultValue={props.itemPhoto}
                 onChange={(e) => setEditPhoto(e.target.value)}
               />
               <Container>
@@ -155,10 +153,6 @@ const ModalTestA = (props) => {
             <Button type="submit">Edit</Button>
           </Form>
         </ModalBody>
-        <ModalFooter>
-          <Button color="primary">Do Something</Button>
-          <Button color="secondary">Cancel</Button>
-        </ModalFooter>
       </Modal>
     </>
   );

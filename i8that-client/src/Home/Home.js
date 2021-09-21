@@ -108,7 +108,7 @@ const Home = (props) => {
               </ul>
             </CardText>
 
-            <Button
+            {/* <Button
               color="warning"
               onClick={() => {
                 toggle();
@@ -117,7 +117,7 @@ const Home = (props) => {
               }}
             >
               Edit
-            </Button>
+            </Button> */}
 
             <Button
               color="danger"
@@ -126,7 +126,7 @@ const Home = (props) => {
                 editUpdateFood(food);
               }}
             >
-              Click top pop
+              Edit
             </Button>
 
             <Button

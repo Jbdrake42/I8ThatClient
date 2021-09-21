@@ -72,10 +72,10 @@ const FoodEdit = (props) => {
 
   return (
     <div>
-      <p>{props.itemA}</p>
+      {/* <p>{props.itemA}</p>
       <p>{props.itemB}</p>
       <p>{props.itemC}</p>
-      <p>{props.itemD}</p>
+      <p>{props.itemD}</p> */}
       {console.info(props.itemD)}
       <Modal isOpen={props.modal} toggle={toggle}>
         <ModalHeader>Edit Food</ModalHeader>
