@@ -7,6 +7,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Uploading from './Components/UploadPhoto';
 import CalorieCounter from './Home/CalorieCounter';
+import { Container, Row, Col } from 'reactstrap';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
@@ -38,17 +39,30 @@ function App() {
   };
 
   return (
-    <div className="main">
-      <Header />
-      <div>
+    <div>
+      <Container>
+        <Row>
+          <Col md="12">
+            <div className="main">
+              <Header />
+            </div>
+          </Col>
+        </Row>
+
         <Router>
-
-          <Sitebar clickLogout={clearToken} />
-          {protectedViews()}
-          <CalorieCounter token={sessionToken} />
+          <div>
+            <Row>
+              <Col md="3">
+                <Sitebar clickLogout={clearToken} />{' '}
+              </Col>
+              <Col md="9">
+                <CalorieCounter token={sessionToken} />
+                {protectedViews()}{' '}
+              </Col>
+            </Row>{' '}
+          </div>
         </Router>
-
-      </div>
+      </Container>{' '}
     </div>
   );
 }
