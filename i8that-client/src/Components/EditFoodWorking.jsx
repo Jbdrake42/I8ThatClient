@@ -23,8 +23,8 @@ const FoodEdit = (props) => {
   const [image, setImage] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // const [modal, setModal] = useState(false);
-  const toggle = () => props.setModal(!props.modal);
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
 
   const foodUpdate = (event, food) => {
     fetch(`http://localhost:3000/update/${props.foodToUpdate.id}`, {
@@ -72,12 +72,7 @@ const FoodEdit = (props) => {
 
   return (
     <div>
-      {/* <p>{props.itemA}</p>
-      <p>{props.itemB}</p>
-      <p>{props.itemC}</p>
-      <p>{props.itemD}</p> */}
-      {console.info(props.itemD)}
-      <Modal isOpen={props.modal} toggle={toggle}>
+      <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader>Edit Food</ModalHeader>
         <ModalBody>
           <Form onSubmit={foodUpdate}>

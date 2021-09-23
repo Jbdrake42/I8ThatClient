@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { Button } from 'reactstrap';
 
 const CalorieCounter = (props) => {
 
@@ -7,6 +7,9 @@ const CalorieCounter = (props) => {
     const [basecalories, setbasecalories] = useState(2800);
     const [dailyCalorie, setDailyCalorie] = useState(0)
     const [remainingCalorie, setRemainingCalorie] = useState(0)
+    const [calorieactive, setcalorieactive] = useState(false);
+
+
     let calculateCalories = () =>{
         let calorieIngested = 0
         var today = new Date();
@@ -28,26 +31,39 @@ const CalorieCounter = (props) => {
           .then((logData) => {
               
             for(let i = 0; i < logData.length; i++){
-                console.log(logData[1].date)
+                
                 if(logData[i].date === today){
                     let added = logData[i].calories
                     calorieIngested = calorieIngested + added
+                    let calorieleftover = basecalories - calorieIngested
                     setDailyCalorie(calorieIngested)
-                    
+                    setRemainingCalorie(calorieleftover)
+                    setcalorieactive(true)
                 }
                 
             }
-            setRemainingCalorie(basecalories - dailyCalorie)
+            
           })          
       };
+      useEffect(() => {
+        calculateCalories()
       
+      }, []);
     return ( 
-        <div>
-            hello from calory CalorieCounter
-            <p>{basecalories}</p>
-            <p>{dailyCalorie}</p>
-            <p>{remainingCalorie}</p> 
-        <button onClick={calculateCalories}>Click Me</button>
+        <div id="calorieMain">
+          <div>
+            <Button color="danger" onClick={calculateCalories}>Click Me</Button>
+            </div>
+            <div class="calorieChild">
+            <p>Maximum Calories: {basecalories}</p>
+            </div>
+            <div class="calorieChild">
+            {calorieactive ? <><p>Daily Calories Consumed: {dailyCalorie}</p></> : <></> }
+            </div>
+            <div class="calorieChild">
+            {calorieactive ?<><p>Calories Remaining: {remainingCalorie}</p></> : <></> }
+            </div>
+        
         </div>
      );
 }
