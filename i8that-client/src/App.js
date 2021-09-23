@@ -10,6 +10,7 @@ import CalorieCounter from './Home/CalorieCounter';
 import { Container, Row, Col } from 'reactstrap';
 import { BrowserRouter as Router } from 'react-router-dom';
 import CreateFood from './Components/CreateFood';
+import Quote from './Components/Quotes/InspirationalQuote';
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
@@ -43,7 +44,10 @@ function App() {
   };
   const protectedViewSide = () => {
     return sessionToken === localStorage.getItem('token') ? (
-      <CreateFood token={sessionToken} />
+      <div>
+        <CreateFood token={sessionToken} />
+        <Quote />
+      </div>
     ) : (
       ' '
     );
