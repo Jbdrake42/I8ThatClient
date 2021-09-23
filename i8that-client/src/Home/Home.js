@@ -79,7 +79,7 @@ const Home = (props) => {
         <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/nauseated-face_1f922.png" />
       );
     } else {
-      console.log("no emogi for you")
+      console.log('no emogi for you');
     }
   }
 
@@ -116,7 +116,6 @@ const Home = (props) => {
 
             {/* <Button color="warning" onClick={() => {props.edit(workout); props.updateOn()}}>Update</Button> */}
 
-
             {/* <Button
               color="warning"
               onClick={() => {
@@ -138,7 +137,6 @@ const Home = (props) => {
               Edit
             </Button>
 
-
             <Button
               color="danger"
               onClick={() => {
@@ -156,7 +154,7 @@ const Home = (props) => {
   return (
     <div>
       <h3>Food History</h3>
-      <CreateFood token={props.token} />
+      {/* <CreateFood token={props.token} /> */}
       <CardColumns> {foodMapper()}</CardColumns>
 
       <ModalTestA
