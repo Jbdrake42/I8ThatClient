@@ -45,7 +45,7 @@ function App() {
   const protectedViewSide = () => {
     return sessionToken === localStorage.getItem('token') ? (
       <div>
-        <CreateFood token={sessionToken} />
+        <Sitebar clickLogout={clearToken} /> <CreateFood token={sessionToken} />
         <Quote />
       </div>
     ) : (
@@ -60,7 +60,6 @@ function App() {
           <Col md="12">
             <div className="main">
               <Header />
-              <Sitebar clickLogout={clearToken} />{' '}
             </div>
           </Col>
         </Row>

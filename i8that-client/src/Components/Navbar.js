@@ -5,9 +5,10 @@ import CreateFood from './CreateFood';
 const Navbar = (props) => {
   return (
     <div>
-        <CreateFood token={props.token} />
-        <Button onClick={props.clickLogout}>Logout</Button>
-        <Quote />
+      <Button onClick={props.clickLogout}>Logout</Button>
+      <CreateFood token={props.token} />
+      <Button onClick={props.clickLogout}>Logout</Button>
+      <Quote />
     </div>
   );
 };
