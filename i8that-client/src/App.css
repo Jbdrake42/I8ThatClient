@@ -190,6 +190,14 @@ margin-right: 7vw;
   margin-bottom: -100px;
 }
 
+.signup {
+  color: #2699FB;
+}
+
+.loginpage {
+  width: 300px;
+}
+
 h2 {
   font-size: 10pt !important;
   letter-spacing: 2px;

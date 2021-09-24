@@ -1,5 +1,3 @@
-import { Button } from 'reactstrap';
-
 const Header = () => {
   return (
     <div class="header">
