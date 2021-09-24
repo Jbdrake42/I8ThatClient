@@ -55,24 +55,21 @@ function App() {
 
   return (
     <div>
-      <Container>
-        <Row>
-          <Col md="12">
-            <div className="main">
-              <Header />
-            </div>
-          </Col>
-        </Row>
+      <Header />
         <Router>
           <div>
             <Row>
-              <Col md="3">{protectedViewSide()} </Col>
+              <div class="sidebar">
+              <Col md="25">{protectedViewSide()} </Col>
+              <div class="footer">Copyright &copy; 2021</div>
+              </div>
+              <div class="wrapper">
               <Col md="9">{protectedViews()} </Col>
-            </Row>{' '}
+              </div>
+            </Row>
           </div>
         </Router>
-      </Container>{' '}
-    </div>
+      </div>
   );
 }
 

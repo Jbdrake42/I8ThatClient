@@ -15,13 +15,13 @@ import FoodEdit from './EditFoods';
 
 const ModalTestA = (props) => {
   const toggle2 = () => props.setModal2(!props.modal2);
-  const [editFood, setEditFood] = useState('');
-  const [editLocation, setEditLocation] = useState('');
-  const [editDate, setEditDate] = useState('');
+  const [editFood, setEditFood] = useState(props.itemFood);
+  const [editLocation, setEditLocation] = useState(props.itemLocation);
+  const [editDate, setEditDate] = useState(props.itemDate);
   //   const [editEmoji, setEditEmoji] = useState('');
-  const [editFeelings, setEditFeelings] = useState('');
-  const [editCalories, setEditCalories] = useState('');
-  const [editPhoto, setEditPhoto] = useState('');
+  const [editFeelings, setEditFeelings] = useState(props.itemFeeling);
+  const [editCalories, setEditCalories] = useState(props.itemCalories);
+  const [editPhoto, setEditPhoto] = useState(props.itemPhoto);
 
   const [image, setImage] = useState('');
   const [loading, setLoading] = useState(false);
@@ -74,10 +74,15 @@ const ModalTestA = (props) => {
   return (
     <>
       <Modal isOpen={props.modal2} toggle={toggle2}>
-        <ModalHeader toggle={toggle2}>Edit Food</ModalHeader>
+        <ModalHeader toggle={toggle2}><h3>Edit Food</h3></ModalHeader>
         <ModalBody>
           <Form onSubmit={foodUpdate}>
             <FormGroup>
+            {loading ? (
+                    <h3>Loading...</h3>
+                  ) : (
+                    <img src={image} style={{ width: '300px' }} />
+                  )}
               <Label htmlFor="food">Edit Food</Label>
               <Input
                 name="food"
@@ -134,24 +139,19 @@ const ModalTestA = (props) => {
                 onChange={(e) => setEditPhoto(e.target.value)}
               />
               <Container>
-                <h1>Upload your image here</h1>
+                <br />
                 <FormGroup>
                   <Input
                     type="file"
                     name="file"
                     placeholder="Upload your file here"
+                    className="photoupload"
                     onChange={UploadImage}
                   />
-                  <br />
-                  {loading ? (
-                    <h3>Loading...</h3>
-                  ) : (
-                    <img src={image} style={{ width: '300px' }} />
-                  )}
                 </FormGroup>
               </Container>
             </FormGroup>
-            <Button type="submit">Edit</Button>
+            <Button className="button" type="submit">Edit</Button>
           </Form>
         </ModalBody>
       </Modal>

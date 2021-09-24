@@ -7,11 +7,9 @@ const Auth = (props) => {
     return (
         <Container className="auth-container">
             <Row>
-                <Col md="6">
-                    <Signup updateToken={props.updateToken} />
-                </Col>
-                <Col className="login-col">
+                <Col className="loginpage">
                     <Login updateToken={props.updateToken} />
+                    <center><Signup updateToken={props.updateToken} /></center>
                 </Col>
             </Row>
         </Container>
