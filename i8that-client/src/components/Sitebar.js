@@ -8,11 +8,7 @@ const Sitebar = (props) => {
   return (
     <div className="sitebar">
       <div className="sitebar-list-styling">
-        <ul className="sitebar-list list-unstyled">
-          {/* <Link to="/Home">Home</Link> */}
-
-          <Button onClick={props.clickLogout}>Logout</Button>
-        </ul>
+          <a class="nav" onClick={props.clickLogout}>Logout</a>
       </div>
     </div>
   );

@@ -51,17 +51,15 @@ const CalorieCounter = (props) => {
       }, []);
     return ( 
         <div id="calorieMain">
-          <div>
-            <Button color="danger" onClick={calculateCalories}>Click Me</Button>
+          <h5>Daily Total</h5>
+            <div class="calorieChild">
+            <p><h4>Recommended Daily</h4> <h6>{basecalories} <sup>cal</sup></h6></p>
             </div>
             <div class="calorieChild">
-            <p>Maximum Calories: {basecalories}</p>
+            <p><h4>Consumed</h4> <h6>{dailyCalorie} <sup>cal</sup></h6></p>
             </div>
             <div class="calorieChild">
-            {calorieactive ? <><p>Daily Calories Consumed: {dailyCalorie}</p></> : <></> }
-            </div>
-            <div class="calorieChild">
-            {calorieactive ?<><p>Calories Remaining: {remainingCalorie}</p></> : <></> }
+            <p><h4>Available</h4> <h6>{remainingCalorie} <sup>cal</sup></h6></p>
             </div>
         
         </div>

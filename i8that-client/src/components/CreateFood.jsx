@@ -81,12 +81,18 @@ const CreateFood = (props) => {
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>
+      <a class="nav" onClick={toggle}>
         Track Food
-      </Button>
+      </a>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Track Food</ModalHeader>
+        <ModalHeader toggle={toggle}><h3>Track Food</h3></ModalHeader>
         <ModalBody>
+
+        {loading ? (
+            <h3>Loading...</h3>
+          ) : (
+            <center><img src={image} style={{ width: '300px' }} /></center>
+          )}
 
       <Form onSubmit={handleSubmit}>
         <FormGroup>
@@ -139,20 +145,15 @@ const CreateFood = (props) => {
             onChange={(e) => setPhoto(e.target.value)}
           />
         <Container>
-        <h1>Upload your image here</h1>
+          <br />
         <FormGroup>
           <Input
             type="file"
             name="file"
             placeholder="Upload your file here"
+            className="photoupload"
             onChange={UploadImage}
           />
-          <br />
-          {loading ? (
-            <h3>Loading...</h3>
-          ) : (
-            <img src={image} style={{ width: '300px' }} />
-          )}
         </FormGroup>
       </Container>
         </FormGroup>

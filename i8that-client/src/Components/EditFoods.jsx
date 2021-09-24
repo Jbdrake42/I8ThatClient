@@ -82,6 +82,11 @@ const FoodEdit = (props) => {
         <ModalBody>
           <Form onSubmit={foodUpdate}>
             <FormGroup>
+            {loading ? (
+                    <h3>Loading...</h3>
+                  ) : (
+                    <img src={image} style={{ width: '300px' }} />
+                  )}
               <Label htmlFor="food">Edit Food</Label>
               <Input
                 name="food"
@@ -137,7 +142,6 @@ const FoodEdit = (props) => {
                 onChange={(e) => setEditPhoto(e.target.value)}
               />
               <Container>
-                <h1>Upload your image here</h1>
                 <FormGroup>
                   <Input
                     type="file"
@@ -145,12 +149,6 @@ const FoodEdit = (props) => {
                     placeholder="Upload your file here"
                     onChange={UploadImage}
                   />
-                  <br />
-                  {loading ? (
-                    <h3>Loading...</h3>
-                  ) : (
-                    <img src={image} style={{ width: '300px' }} />
-                  )}
                 </FormGroup>
               </Container>
             </FormGroup>

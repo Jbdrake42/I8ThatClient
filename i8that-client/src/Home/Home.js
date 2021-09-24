@@ -9,8 +9,6 @@ import {
   CardSubtitle,
   CardBody,
 } from 'reactstrap';
-import CreateFood from '../Components/CreateFood';
-import FoodEdit from '../Components/EditFoods';
 import ModalTestA from '../Components/ModalTestA';
 
 const Home = (props) => {
@@ -154,9 +152,7 @@ const Home = (props) => {
   };
 
   return (
-    <div>
-      <h3>Food History</h3>
-      <CreateFood token={props.token} />
+    <div class="main">
       <CardColumns> {foodMapper()}</CardColumns>
 
       <ModalTestA
