@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
-import { Button } from 'reactstrap';
-import Home from '../Home/Home';
-import CreateFood from './CreateFood';
 
 const Sitebar = (props) => {
   return (

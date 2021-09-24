@@ -56,20 +56,10 @@ function App() {
   return (
     <div>
       <Header />
-        <Row>
-          <Col md="12">
-            <div className="main">
-
-              <Header />
-
-            </div>
-          </Col>
-        </Row>
         <Router>
           <div>
             <Row>
               <div class="sidebar">
-              <Sitebar clickLogout={clearToken} />{' '}
               <Col md="25">{protectedViewSide()} </Col>
               <div class="footer">Copyright &copy; 2021</div>
               </div>
