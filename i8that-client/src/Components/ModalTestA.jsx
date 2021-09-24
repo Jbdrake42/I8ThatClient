@@ -13,15 +13,24 @@ import {
 } from 'reactstrap';
 import FoodEdit from './EditFoods';
 
+let greatEmoji =
+  'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/smiling-face-with-smiling-eyes_1f60a.png';
+let goodEmoji =
+  'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/slightly-smiling-face_1f642.png';
+let disgusted =
+  'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/unamused-face_1f612.png';
+let gross =
+  'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/nauseated-face_1f922.png';
+
 const ModalTestA = (props) => {
   const toggle2 = () => props.setModal2(!props.modal2);
-  const [editFood, setEditFood] = useState('');
-  const [editLocation, setEditLocation] = useState('');
-  const [editDate, setEditDate] = useState('');
+  const [editFood, setEditFood] = useState(props.itemFood);
+  const [editLocation, setEditLocation] = useState(props.itemLocation);
+  const [editDate, setEditDate] = useState(props.itemDate);
   //   const [editEmoji, setEditEmoji] = useState('');
-  const [editFeelings, setEditFeelings] = useState('');
-  const [editCalories, setEditCalories] = useState('');
-  const [editPhoto, setEditPhoto] = useState('');
+  const [editFeelings, setEditFeelings] = useState(props.itemFeeling);
+  const [editCalories, setEditCalories] = useState(props.itemCalories);
+  const [editPhoto, setEditPhoto] = useState(props.itemPhoto);
 
   const [image, setImage] = useState('');
   const [loading, setLoading] = useState(false);
@@ -35,7 +44,7 @@ const ModalTestA = (props) => {
           food: editFood,
           location: editLocation,
           date: editDate,
-
+          // emoji: editEmoji,
           feelings: editFeelings,
           calories: Number(editCalories),
           photo: editPhoto,
@@ -151,6 +160,55 @@ const ModalTestA = (props) => {
                 </FormGroup>
               </Container>
             </FormGroup>
+
+            {/* <FormGroup tag="fieldset">
+              <legend>Summerize Your Food Experience</legend>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="radio1"
+                    value="great"
+                    onChange={(e) => setEditEmoji(e.target.value)}
+                  />{' '}
+                  <img src={greatEmoji} style={{ width: '50px' }} />
+                </Label>
+              </FormGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="radio1"
+                    value="good"
+                    onChange={(e) => setEditEmoji(e.target.value)}
+                  />{' '}
+                  <img src={goodEmoji} style={{ width: '50px' }} />
+                </Label>
+              </FormGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="radio1"
+                    value="disgusted"
+                    onChange={(e) => setEditEmoji(e.target.value)}
+                  />{' '}
+                  <img src={disgusted} style={{ width: '50px' }} />
+                </Label>
+              </FormGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="radio1"
+                    value="gross"
+                    onChange={(e) => setEditEmoji(e.target.value)}
+                  />{' '}
+                  <img src={gross} style={{ width: '50px' }} />
+                </Label>
+              </FormGroup>
+            </FormGroup> */}
+
             <Button type="submit">Edit</Button>
           </Form>
         </ModalBody>

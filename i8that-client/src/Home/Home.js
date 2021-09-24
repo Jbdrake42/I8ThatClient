@@ -115,19 +115,6 @@ const Home = (props) => {
               </ul>
             </CardText>
 
-            {/* <Button color="warning" onClick={() => {props.edit(workout); props.updateOn()}}>Update</Button> */}
-
-            {/* <Button
-              color="warning"
-              onClick={() => {
-                toggle();
-                editUpdateFood(food);
-                // props.updateOn();
-              }}
-            >
-              Edit
-            </Button> */}
-
             <Button
               color="danger"
               onClick={(event) => {
