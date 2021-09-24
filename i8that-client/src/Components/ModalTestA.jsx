@@ -15,13 +15,13 @@ import FoodEdit from './EditFoods';
 
 const ModalTestA = (props) => {
   const toggle2 = () => props.setModal2(!props.modal2);
-  const [editFood, setEditFood] = useState('');
-  const [editLocation, setEditLocation] = useState('');
-  const [editDate, setEditDate] = useState('');
+  const [editFood, setEditFood] = useState(props.itemFood);
+  const [editLocation, setEditLocation] = useState(props.itemLocation);
+  const [editDate, setEditDate] = useState(props.itemDate);
   //   const [editEmoji, setEditEmoji] = useState('');
-  const [editFeelings, setEditFeelings] = useState('');
-  const [editCalories, setEditCalories] = useState('');
-  const [editPhoto, setEditPhoto] = useState('');
+  const [editFeelings, setEditFeelings] = useState(props.itemFeeling);
+  const [editCalories, setEditCalories] = useState(props.itemCalories);
+  const [editPhoto, setEditPhoto] = useState(props.itemPhoto);
 
   const [image, setImage] = useState('');
   const [loading, setLoading] = useState(false);

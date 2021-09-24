@@ -41,6 +41,7 @@
 }
 
 body {
+  overflow-x: hidden;
   font-family: 'Yaldevi', sans-serif;
 }
 
@@ -93,7 +94,7 @@ margin-right: 7vw;
   position: fixed;
   background: #2699FB;
   color: #ffffff;
-  width: 100%;
+  width: 100vw;
   height: 60px;
   display: flex;
   justify-content: center;
@@ -113,7 +114,6 @@ margin-right: 7vw;
 }
 
 .wrapper {
-  width: 100vw;
   position: relative;
   left: 20%;
   margin-top: 100px;
@@ -194,8 +194,13 @@ margin-right: 7vw;
   color: #2699FB;
 }
 
-.loginpage {
-  width: 300px;
+.auth-container {
+  width: 600px !important;
+  margin-left: 400px !important;
+}
+
+.form-check-input {
+  display: inline !important;
 }
 
 h2 {

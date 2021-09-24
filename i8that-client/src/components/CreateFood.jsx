@@ -51,12 +51,14 @@ const CreateFood = (props) => {
         setFeelings('');
         setCalories('');
         setPhoto('');
+        toggle();
+        window.location.href = '/';
       });
   };
 
   function setEmojo(e){
     setEmoji(e.target.value); 
-    toggle()
+    //toggle()
   }
 
   const UploadImage = async (e) => {
@@ -155,15 +157,54 @@ const CreateFood = (props) => {
         </FormGroup>
       </Container>
         </FormGroup>
-        <FormGroup >
-          <Label className="emojiLabel" htmlFor="emoji">Summarize the Food Experience</Label>
-          <div className="emojiHolder">
-          <Input className="emojiImages" type="image" src={greatEmoji} max-width="24" height="24" value="great" alt="great smile" onClick={setEmojo}  />
-          <Input className="emojiImages" type="image" src={goodEmoji} width="48" height="48" value="good" alt="ok smile" onClick={setEmojo}  />
-          <Input className="emojiImages" type="image" src={disgusted} width="48" height="48" value="disgusted"  alt="side eye" onClick={setEmojo} />
-          <Input className="emojiImages" type="image" src={gross} width="48" height="48" value="gross"  alt="about to barf" onClick={setEmojo} />
-          </div>
-        </FormGroup>
+        <FormGroup tag="fieldset">
+              <legend>Summerize Your Food Experience</legend>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="radio1"
+                    value="great"
+                    onChange={(e) => setEmoji(e.target.value)}
+                  />{' '}
+                  <img src={greatEmoji} style={{ width: '50px' }} />
+                </Label>
+              </FormGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="radio1"
+                    value="good"
+                    onChange={(e) => setEmoji(e.target.value)}
+                  />{' '}
+                  <img src={goodEmoji} style={{ width: '50px' }} />
+                </Label>
+              </FormGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="radio1"
+                    value="disgusted"
+                    onChange={(e) => setEmoji(e.target.value)}
+                  />{' '}
+                  <img src={disgusted} style={{ width: '50px' }} />
+                </Label>
+              </FormGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="radio"
+                    name="radio1"
+                    value="gross"
+                    onChange={(e) => setEmoji(e.target.value)}
+                  />{' '}
+                  <img src={gross} style={{ width: '50px' }} />
+                </Label>
+              </FormGroup>
+            </FormGroup>
+            <Button className="button" type="submit">Submit</Button>
       </Form>
       </ModalBody>
       </Modal>
