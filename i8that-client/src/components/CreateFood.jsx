@@ -96,13 +96,22 @@ const CreateFood = (props) => {
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>
+      <a class="nav" onClick={toggle}>
         Track Food
-      </Button>
+      </a>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Track Food</ModalHeader>
+        <ModalHeader toggle={toggle}>
+          <h3>Track Food</h3>
+        </ModalHeader>
         <ModalBody>
           <Form onSubmit={handleSubmit}>
+            {loading ? (
+              <h3>Loading...</h3>
+            ) : (
+              <center>
+                <img src={image} style={{ width: '300px' }} />
+              </center>
+            )}
             <FormGroup>
               <Label htmlFor="food">Food</Label>
               <Input
@@ -153,75 +162,21 @@ const CreateFood = (props) => {
                 onChange={(e) => setPhoto(e.target.value)}
               />
               <Container>
-                <h1>Upload your image here</h1>
+                <br />
                 <FormGroup>
                   <Input
                     type="file"
                     name="file"
+                    className="photoupload"
                     placeholder="Upload your file here"
                     onChange={UploadImage}
                   />
-                  <br />
-                  {loading ? (
-                    <h3>Loading...</h3>
-                  ) : (
-                    <img src={image} style={{ width: '300px' }} />
-                  )}
                 </FormGroup>
               </Container>
             </FormGroup>
-
-            <FormGroup tag="fieldset">
-              <legend>Summerize Your Food Experience</legend>
-              <FormGroup check>
-                <Label check>
-                  <Input
-                    type="radio"
-                    name="radio1"
-                    value="great"
-                    onChange={(e) => setEmoji(e.target.value)}
-                  />{' '}
-                  <img src={greatEmoji} style={{ width: '50px' }} />
-                </Label>
-              </FormGroup>
-              <FormGroup check>
-                <Label check>
-                  <Input
-                    type="radio"
-                    name="radio1"
-                    value="good"
-                    onChange={(e) => setEmoji(e.target.value)}
-                  />{' '}
-                  <img src={goodEmoji} style={{ width: '50px' }} />
-                </Label>
-              </FormGroup>
-              <FormGroup check>
-                <Label check>
-                  <Input
-                    type="radio"
-                    name="radio1"
-                    value="disgusted"
-                    onChange={(e) => setEmoji(e.target.value)}
-                  />{' '}
-                  <img src={disgusted} style={{ width: '50px' }} />
-                </Label>
-              </FormGroup>
-              <FormGroup check>
-                <Label check>
-                  <Input
-                    type="radio"
-                    name="radio1"
-                    value="gross"
-                    onChange={(e) => setEmoji(e.target.value)}
-                  />{' '}
-                  <img src={gross} style={{ width: '50px' }} />
-                </Label>
-              </FormGroup>
-            </FormGroup>
-            {/* 
             <FormGroup>
               <Label className="emojiLabel" htmlFor="emoji">
-                Summerize the Food Experience
+                Summarize the Food Experience
               </Label>
               <div className="emojiHolder">
                 <Input
@@ -232,7 +187,7 @@ const CreateFood = (props) => {
                   height="24"
                   value="great"
                   alt="great smile"
-                  onClick={() => setEmojo}
+                  onClick={setEmojo}
                 />
                 <Input
                   className="emojiImages"
@@ -242,7 +197,7 @@ const CreateFood = (props) => {
                   height="48"
                   value="good"
                   alt="ok smile"
-                  onChange={(e) => setEmoji(e.target.value)}
+                  onClick={setEmojo}
                 />
                 <Input
                   className="emojiImages"
@@ -252,7 +207,7 @@ const CreateFood = (props) => {
                   height="48"
                   value="disgusted"
                   alt="side eye"
-                  onChang={() => setEmojo}
+                  onClick={setEmojo}
                 />
                 <Input
                   className="emojiImages"
@@ -262,11 +217,10 @@ const CreateFood = (props) => {
                   height="48"
                   value="gross"
                   alt="about to barf"
-                  onClick="setEmojo(); return false;"
+                  onClick={setEmojo}
                 />
               </div>
-            </FormGroup> */}
-            <Button type="submit">Submit</Button>
+            </FormGroup>
           </Form>
         </ModalBody>
       </Modal>

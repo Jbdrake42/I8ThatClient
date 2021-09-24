@@ -83,10 +83,17 @@ const ModalTestA = (props) => {
   return (
     <>
       <Modal isOpen={props.modal2} toggle={toggle2}>
-        <ModalHeader toggle={toggle2}>Edit Food</ModalHeader>
+        <ModalHeader toggle={toggle2}>
+          <h3>Edit Food</h3>
+        </ModalHeader>
         <ModalBody>
           <Form onSubmit={foodUpdate}>
             <FormGroup>
+              {loading ? (
+                <h3>Loading...</h3>
+              ) : (
+                <img src={image} style={{ width: '300px' }} />
+              )}
               <Label htmlFor="food">Edit Food</Label>
               <Input
                 name="food"
@@ -143,73 +150,21 @@ const ModalTestA = (props) => {
                 onChange={(e) => setEditPhoto(e.target.value)}
               />
               <Container>
-                <h1>Upload your photo here</h1>
+                <br />
                 <FormGroup>
                   <Input
                     type="file"
                     name="file"
                     placeholder="Upload your file here"
+                    className="photoupload"
                     onChange={UploadImage}
                   />
-                  <br />
-                  {loading ? (
-                    <h3>Loading...</h3>
-                  ) : (
-                    <img src={image} style={{ width: '300px' }} />
-                  )}
                 </FormGroup>
               </Container>
             </FormGroup>
-
-            {/* <FormGroup tag="fieldset">
-              <legend>Summerize Your Food Experience</legend>
-              <FormGroup check>
-                <Label check>
-                  <Input
-                    type="radio"
-                    name="radio1"
-                    value="great"
-                    onChange={(e) => setEditEmoji(e.target.value)}
-                  />{' '}
-                  <img src={greatEmoji} style={{ width: '50px' }} />
-                </Label>
-              </FormGroup>
-              <FormGroup check>
-                <Label check>
-                  <Input
-                    type="radio"
-                    name="radio1"
-                    value="good"
-                    onChange={(e) => setEditEmoji(e.target.value)}
-                  />{' '}
-                  <img src={goodEmoji} style={{ width: '50px' }} />
-                </Label>
-              </FormGroup>
-              <FormGroup check>
-                <Label check>
-                  <Input
-                    type="radio"
-                    name="radio1"
-                    value="disgusted"
-                    onChange={(e) => setEditEmoji(e.target.value)}
-                  />{' '}
-                  <img src={disgusted} style={{ width: '50px' }} />
-                </Label>
-              </FormGroup>
-              <FormGroup check>
-                <Label check>
-                  <Input
-                    type="radio"
-                    name="radio1"
-                    value="gross"
-                    onChange={(e) => setEditEmoji(e.target.value)}
-                  />{' '}
-                  <img src={gross} style={{ width: '50px' }} />
-                </Label>
-              </FormGroup>
-            </FormGroup> */}
-
-            <Button type="submit">Edit</Button>
+            <Button className="button" type="submit">
+              Edit
+            </Button>
           </Form>
         </ModalBody>
       </Modal>

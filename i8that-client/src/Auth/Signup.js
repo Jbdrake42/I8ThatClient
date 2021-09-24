@@ -1,9 +1,11 @@
 import React, {useState} from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Container } from 'reactstrap';
 
 const Signup = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
 
     let handleSubmit = (event) => {
         event.preventDefault();
@@ -21,8 +23,13 @@ const Signup = (props) => {
     }
 
     return (
-        <div>
-            <h1>Sign Up</h1>
+        <>
+      Need an account? <a class="signup" onClick={toggle}>
+        Sign up.  
+      </a>
+      <Modal isOpen={modal} toggle={toggle}>
+        <ModalHeader toggle={toggle}><h3>Sign Up</h3></ModalHeader>
+        <ModalBody>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="email">Email</Label>
@@ -32,9 +39,11 @@ const Signup = (props) => {
                     <Label htmlFor="password">Password</Label>
                     <Input onChange={(e) => setPassword(e.target.value)} type="password" name="password" value={password} />
                 </FormGroup>
-                <Button type="submit">Signup</Button>
+                <Button className="button" type="submit">Signup</Button>
             </Form>
-        </div>
+      </ModalBody>
+      </Modal>
+        </>
     );
 };
 
