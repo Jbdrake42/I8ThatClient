@@ -100,9 +100,9 @@ const Home = (props) => {
         <Card key={index}>
           <CardImg top width="100%" src={food.photo} alt="Card image cap" />
           <CardBody>
-            <CardTitle tag="h5">{food.id}</CardTitle>
+            <CardTitle tag="h5">{food.food}</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted">
-              {food.food}
+              Calories: {food.calories}
             </CardSubtitle>
             <CardText>
               <ul>
@@ -111,6 +111,7 @@ const Home = (props) => {
                 <li>Calories: {food.calories}</li>
                 <li> {food.feelings}</li>
                 <li>{emojiDisplayer(food)}</li>
+                {/* <li>{food.id} </li> */}
               </ul>
             </CardText>
 
