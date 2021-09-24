@@ -53,13 +53,13 @@ const CalorieCounter = (props) => {
         <div id="calorieMain">
           <h5>Daily Total</h5>
             <div class="calorieChild">
-            <p><h4>Recommended Daily</h4> <h6>{basecalories} <sup>cal</sup></h6></p>
+            <p><h4>Recommended Daily</h4> <h6>{basecalories}</h6> cal</p>
             </div>
             <div class="calorieChild">
-            <p><h4>Consumed</h4> <h6>{dailyCalorie} <sup>cal</sup></h6></p>
+            <p><h4>Consumed Today</h4> <h6>{dailyCalorie}</h6> cal</p>
             </div>
             <div class="calorieChild">
-            <p><h4>Available</h4> <h6>{remainingCalorie} <sup>cal</sup></h6></p>
+            <p><h4>Available</h4> <h6>{remainingCalorie}</h6> cal</p>
             </div>
         
         </div>

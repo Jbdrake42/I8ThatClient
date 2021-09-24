@@ -72,7 +72,7 @@ width: 100%;
   color: #2699FB;
 flex-wrap: wrap;
 top: 50%;
-margin-left: 7vw;
+margin-left: 6vw;
 margin-right: 7vw;
 }
 
@@ -110,7 +110,7 @@ margin-right: 7vw;
 }
 
 .wrapper {
-  width: 100%;
+  width: 100vw;
   position: relative;
   left: 20%;
   margin-top: 40px;
@@ -144,10 +144,58 @@ margin-right: 7vw;
   text-align: center;
 }
 
+.button1 {
+  color: #ffffff;
+  padding: 15px !important;
+  background:#2699FB !important;
+  width: 150px;
+  border: none !important;
+  text-transform: uppercase;
+  font-size: 10pt !important;
+  font-family: 'Yaldevi', sans-serif;
+  float: right;
+}
+
+.button2 {
+  color: #ffffff;
+  padding: 15px !important;
+  background:#2699FB !important;
+  width: 150px;
+  border: none !important;
+  text-transform: uppercase;
+  font-size: 10pt !important;
+  font-family: 'Yaldevi', sans-serif;
+  float: left;
+}
+
 .button {
   color: #ffffff;
-  padding: 10px;
-  background:#2699FB;
+  padding: 15px !important;
+  background:#2699FB !important;
+  width: 150px;
+  border: none !important;
+  text-transform: uppercase;
+  font-size: 10pt !important;
+  font-family: 'Yaldevi', sans-serif;
+}
+
+.emojiright {
+  position: relative;
+  top: -120px;
+  left: 280px;
+  padding: 0px;
+  margin-bottom: -100px;
+}
+
+h2 {
+  font-size: 10pt !important;
+  letter-spacing: 2px;
+  color:#2699FB;
+  margin-bottom: -10px !important;
+  text-transform: uppercase;
+  font-weight: bolder;
+  text-align: right;
+  font-family: 'Yaldevi', sans-serif;
 }
 
 h3 {
@@ -180,7 +228,18 @@ h6 {
   font-size: 26pt !important;
   color:#2699FB;
   font-family: 'Yaldevi', sans-serif;
-  margin-top: -15px !important;
+  margin-top: -25px !important;
+  display: inline;
+}
+
+h1 {
+  font-size: 10pt !important;
+  letter-spacing: 2px;
+  padding-top: 10px;
+  color:#2699FB;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-family: 'Yaldevi', sans-serif;
 }
 
 input {
@@ -190,6 +249,14 @@ input {
 }
 
 label {
+  color: #2699FB !important;
+  font-family: 'Yaldevi', sans-serif;
+}
+
+ul {
+  margin-left: -40px;
+  font-size: 11pt;
+  font-weight: bold;
   color: #2699FB !important;
   font-family: 'Yaldevi', sans-serif;
 }

@@ -78,12 +78,12 @@ const ModalTestA = (props) => {
         <ModalBody>
           <Form onSubmit={foodUpdate}>
             <FormGroup>
-              <Label htmlFor="food">Edit Food</Label>
-              {loading ? (
+            {loading ? (
                     <h3>Loading...</h3>
                   ) : (
                     <img src={image} style={{ width: '300px' }} />
                   )}
+              <Label htmlFor="food">Edit Food</Label>
               <Input
                 name="food"
                 defaultValue={props.itemFood}

@@ -26,7 +26,7 @@ const Quote = () => {
 
     return ( 
         <div>
-            <a class="nav" onClick={QuoteatizeMeCaptain}>Quote</a>
+            <a class="nav" onClick={QuoteatizeMeCaptain}>Inspire Me</a>
             {quoteActivate ? <p class="quote"><h3>Inspiration</h3>{inspiration}</p> : <></> }
         </div>
      );

@@ -87,14 +87,12 @@ const CreateFood = (props) => {
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}><h3>Track Food</h3></ModalHeader>
         <ModalBody>
-
-        {loading ? (
+      <Form onSubmit={handleSubmit}>
+      {loading ? (
             <h3>Loading...</h3>
           ) : (
             <center><img src={image} style={{ width: '300px' }} /></center>
           )}
-
-      <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Label htmlFor="food">Food</Label>
           <Input
@@ -150,15 +148,15 @@ const CreateFood = (props) => {
           <Input
             type="file"
             name="file"
-            placeholder="Upload your file here"
             className="photoupload"
+            placeholder="Upload your file here"
             onChange={UploadImage}
           />
         </FormGroup>
       </Container>
         </FormGroup>
         <FormGroup >
-          <Label className="emojiLabel" htmlFor="emoji">Summerize the Food Experience</Label>
+          <Label className="emojiLabel" htmlFor="emoji">Summarize the Food Experience</Label>
           <div className="emojiHolder">
           <Input className="emojiImages" type="image" src={greatEmoji} max-width="24" height="24" value="great" alt="great smile" onClick={setEmojo}  />
           <Input className="emojiImages" type="image" src={goodEmoji} width="48" height="48" value="good" alt="ok smile" onClick={setEmojo}  />
