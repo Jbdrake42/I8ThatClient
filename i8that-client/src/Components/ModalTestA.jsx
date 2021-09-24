@@ -139,7 +139,11 @@ const ModalTestA = (props) => {
                 onChange={(e) => setEditPhoto(e.target.value)}
               />
               <Container>
+
+                <h1>Upload your photo here</h1>
+
                 <br />
+
                 <FormGroup>
                   <Input
                     type="file"

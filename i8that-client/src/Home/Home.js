@@ -77,7 +77,7 @@ const Home = (props) => {
         <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/nauseated-face_1f922.png" />
       );
     } else {
-      console.log("no emogi for you")
+      console.log('no emogi for you');
     }
   }
 
@@ -98,18 +98,24 @@ const Home = (props) => {
         <Card key={index}>
           <CardImg top width="100%" src={food.photo} alt="Card image cap" />
           <CardBody>
-            <CardTitle tag="h1">{food.food}</CardTitle>
+
+            <CardTitle tag="h5">{food.food}</CardTitle>
+            <CardSubtitle tag="h6" className="mb-2 text-muted">
+              Calories: {food.calories}
+            </CardSubtitle>
             <CardText>
-              <ul type="none">
-                <li>Place: {food.location}</li>
-                <li>Total Calories: {food.calories}</li>
-                <li>Feelings: {food.feelings}</li>
-                </ul>
-                <p class="emojiright">{emojiDisplayer(food)}</p>
+              <ul>
+                <li>Location: {food.location}</li>
+                <li>Date: {food.date}</li>
+                <li>Calories: {food.calories}</li>
+                <li> {food.feelings}</li>
+                <li>{emojiDisplayer(food)}</li>
+                {/* <li>{food.id} </li> */}
+              </ul>
+
             </CardText>
 
             {/* <Button color="warning" onClick={() => {props.edit(workout); props.updateOn()}}>Update</Button> */}
-
 
             {/* <Button
               color="warning"
@@ -133,7 +139,9 @@ const Home = (props) => {
             </Button>
 
 
-            <Button className="button1"
+            <Button
+              color="danger"
+
               onClick={() => {
                 deleteFoodEntry(food);
               }}
@@ -149,7 +157,11 @@ const Home = (props) => {
   };
 
   return (
-    <div class="main">
+
+    <div>
+      <h3>Food History</h3>
+      {/* <CreateFood token={props.token} /> */}
+
       <CardColumns> {foodMapper()}</CardColumns>
 
       <ModalTestA
