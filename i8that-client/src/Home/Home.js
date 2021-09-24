@@ -9,13 +9,14 @@ import {
   CardSubtitle,
   CardBody,
 } from 'reactstrap';
+import APIURL from '../helpers/environment';
 import ModalTestA from '../Components/ModalTestA';
 
 const Home = (props) => {
   const [foodEntries, setFoodEntries] = useState([]);
 
   const fetchFoodEntries = () => {
-    fetch('http://localhost:3000/food/get', {
+    fetch(`${APIURL}/food/get`, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -82,7 +83,7 @@ const Home = (props) => {
   }
 
   const deleteFoodEntry = (food) => {
-    fetch(`http://localhost:3000/food/delete/${food.id}`, {
+    fetch(`${APIURL}/food/delete/${food.id}`, {
       method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',

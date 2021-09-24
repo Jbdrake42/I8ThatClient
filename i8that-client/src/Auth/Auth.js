@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import Login from "./Login";
 import Signup from "./Signup";
+import APIURL from "../helpers/environment";
 
 const Auth = (props) => {
     return (

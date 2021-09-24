@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import APIURL from '../helpers/environment'
 import {
   Button,
   Form,
@@ -28,7 +29,7 @@ const ModalTestA = (props) => {
 
   const foodUpdate = (event, food) => {
     event.preventDefault();
-    fetch(`http://localhost:3000/food/update/${props.itemId}`, {
+    fetch(`${APIURL}/food/update/${props.itemId}`, {
       method: 'PUT',
       body: JSON.stringify({
         food: {

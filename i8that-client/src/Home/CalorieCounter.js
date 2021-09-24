@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'reactstrap';
-
+import APIURL from '../helpers/environment';
 const CalorieCounter = (props) => {
 
 
@@ -20,7 +20,7 @@ const CalorieCounter = (props) => {
         today = yyyy + '-' + mm + '-' + dd;
         console.log(today)
         
-        fetch('http://localhost:3000/food/get', {
+        fetch(`${APIURL}/food/get`, {
           method: 'GET',
           headers: new Headers({
             'Content-Type': 'application/json',
