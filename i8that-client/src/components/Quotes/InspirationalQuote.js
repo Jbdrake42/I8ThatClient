@@ -26,8 +26,8 @@ const Quote = () => {
 
     return ( 
         <div>
-            <button onClick={QuoteatizeMeCaptain}>Summon Inspiration</button>
-            {quoteActivate ? <p>{inspiration}</p> : <></> }
+            <a class="nav" onClick={QuoteatizeMeCaptain}>Inspire Me</a>
+            {quoteActivate ? <p class="quote"><h3>Inspiration</h3>{inspiration}</p> : <></> }
         </div>
      );
 }

@@ -9,8 +9,6 @@ import {
   CardSubtitle,
   CardBody,
 } from 'reactstrap';
-import CreateFood from '../Components/CreateFood';
-import FoodEdit from '../Components/EditFoods';
 import ModalTestA from '../Components/ModalTestA';
 
 const Home = (props) => {
@@ -100,6 +98,7 @@ const Home = (props) => {
         <Card key={index}>
           <CardImg top width="100%" src={food.photo} alt="Card image cap" />
           <CardBody>
+
             <CardTitle tag="h5">{food.food}</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted">
               Calories: {food.calories}
@@ -113,6 +112,7 @@ const Home = (props) => {
                 <li>{emojiDisplayer(food)}</li>
                 {/* <li>{food.id} </li> */}
               </ul>
+
             </CardText>
 
             {/* <Button color="warning" onClick={() => {props.edit(workout); props.updateOn()}}>Update</Button> */}
@@ -129,7 +129,7 @@ const Home = (props) => {
             </Button> */}
 
             <Button
-              color="danger"
+              className="button2"
               onClick={(event) => {
                 toggle2();
                 editUpdateFood(food);
@@ -138,14 +138,18 @@ const Home = (props) => {
               Edit
             </Button>
 
+
             <Button
               color="danger"
+
               onClick={() => {
                 deleteFoodEntry(food);
               }}
             >
               Delete
             </Button>
+            <br /><br /><br />
+            <h2>{food.date}</h2>
           </CardBody>
         </Card>
       );
@@ -153,9 +157,11 @@ const Home = (props) => {
   };
 
   return (
+
     <div>
       <h3>Food History</h3>
       {/* <CreateFood token={props.token} /> */}
+
       <CardColumns> {foodMapper()}</CardColumns>
 
       <ModalTestA
